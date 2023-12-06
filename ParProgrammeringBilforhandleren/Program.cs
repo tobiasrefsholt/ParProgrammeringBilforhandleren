@@ -7,13 +7,10 @@ store.AddCar(new Car("Ferrari","250GTO", 2024, "BTC999", 10));
 store.AddCar(new Car("Audi", "RS7", 2024, "LS99911", 10));
 store.AddCar(new Car("BMW", "M2", 2015, "BMWM2", 2));
 
-
-List<Car> kjøptbil = new List<Car>();
+var CustomerCars = new List<Car>();
 
 while (true)
 {
-   
-  
     Console.WriteLine("1. Vis tilgjengelige biler");
     Console.WriteLine("2. finn en bil ut fra årsrange");
     Console.WriteLine("3. finn bil ut ifra kilometerstand");
@@ -26,7 +23,7 @@ while (true)
     switch (input)
     {
         case '1':
-            store.avaiablecars();
+            store.AvailableCars();
             break;
         case '2':
             Console.WriteLine("skriv inn max år");
@@ -34,7 +31,7 @@ while (true)
             int intYear = Int32.Parse(inputMaxYear);
             Console.WriteLine("skriv inn min år");
             int intyearMin = Int32.Parse(Console.ReadLine());
-            store.displaycarbyYear(intYear, intyearMin);
+            store.DisplayCarByYear(intYear, intyearMin);
             break;
         case '3':
             Console.WriteLine("skriv inn max km");
@@ -43,16 +40,16 @@ while (true)
             Console.WriteLine("skriv inn min km");
             var inputkm = Console.ReadLine();
             int intMinKm = Int32.Parse(inputkm);
-            store.displaycarbyKm(intkm, intMinKm);
+            store.DisplayCarByKm(intkm, intMinKm);
             break;
         case '4':
             Console.WriteLine("Skriv inn registreringsnummer på bil");
             var kjøp = Console.ReadLine();
-            var Kjøptbil = store.bestiltbil(kjøp);
-            kjøptbil.Add(Kjøptbil);
+            var Kjøptbil = store.OrderedCar(kjøp);
+            CustomerCars.Add(Kjøptbil);
             break;
         case '5':
-            foreach (var car in kjøptbil)
+            foreach (var car in CustomerCars)
             {
                 Console.WriteLine("Dine biler:");
                 car.show();

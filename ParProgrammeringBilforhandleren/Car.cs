@@ -3,7 +3,7 @@ namespace ParProgrammeringBilforhandleren;
 public class Car
 {
     private string _brand;
-    public string _model;
+    private string _model;
     public int _year;
     public string _registration;
     public int _kilometers;
@@ -20,7 +20,7 @@ public class Car
 
     public void show()
     {
-      Console.WriteLine($"brand: {_brand} modell: {_model} årsmodell: {_year} registreringsnummer: {_registration} kilometer: {_kilometers}");
+      Console.WriteLine($"brand: {_brand} modell: {_model} Ã¥rsmodell: {_year} registreringsnummer: {_registration} kilometer: {_kilometers}");
     }
 
 

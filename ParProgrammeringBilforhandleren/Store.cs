@@ -4,22 +4,22 @@ namespace ParProgrammeringBilforhandleren;
 
 public class Store
 {
-    public readonly List<Car> _carsForSale = new();
+    private readonly List<Car> _carsForSale = new();
 
     public void AddCar(Car car)
     {
         _carsForSale.Add(car);
     }
 
-    public void avaiablecars()
+    public void AvailableCars()
     {
         foreach (Car car in _carsForSale)
         {
             car.show();
-
         }
     }
-    public void displaycarbyYear(int intYear, int intyearMin)
+
+    public void DisplayCarByYear(int intYear, int intyearMin)
     {
         var filteredCars = _carsForSale.Where(car => car._year <= intYear && car._year >= intyearMin);
         foreach (var car in filteredCars)
@@ -28,7 +28,7 @@ public class Store
         }
     }
 
-    public void displaycarbyKm(int intkm, int minKm)
+    public void DisplayCarByKm(int intkm, int minKm)
     {
         var filteredCars = _carsForSale.Where(car => car._kilometers <= intkm && car._kilometers >= minKm);
         foreach (var car in filteredCars)
@@ -37,16 +37,12 @@ public class Store
         }
     }
 
-    public Car bestiltbil(string kjøp)
+    public Car OrderedCar(string registration)
     {
-        var filteredCars = _carsForSale.Find(car => car._registration == kjøp);
-        filteredCars.show();
+        var orderedCar = _carsForSale.Find(car => car._registration == registration);
+        orderedCar?.show();
         Console.WriteLine("Gratulerer med ny bil! :) ");
-        _carsForSale.Remove(filteredCars);
-        return filteredCars;
+        _carsForSale.Remove(orderedCar);
+        return orderedCar;
     }
-
-
-
-
 }
